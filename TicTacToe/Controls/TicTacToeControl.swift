@@ -81,7 +81,7 @@ class TicTacToeControl: UIControl {
     }
     
     func tappedTile(tile: TileControl) {
-        let result = game.placeTile(row: tile.index.row, col: tile.index.column, player: currentPlayer)
+        let result = game.placeTile(row: tile.index.row, column: tile.index.column, player: currentPlayer)
         
         switch result {
         case .ongoing:
@@ -89,11 +89,11 @@ class TicTacToeControl: UIControl {
             currentPlayer.toggle()
             delegate?.playerChanged(currentPlayer)
             print("Continuing...")
-        case let .win(player, winningTiles):
+        case let .win(player, winningIndexes):
             tile.player = currentPlayer
-            delegate?.playerDidWin(player, winningIndexes: winningTiles)
-            highlightWinningTiles(indexes: winningTiles)
-            print("\(player.rawValue) wins! Winning tiles: \(winningTiles)")
+            delegate?.playerDidWin(player, winningIndexes: winningIndexes)
+            highlightWinningTiles(indexes: winningIndexes)
+            print("\(player.rawValue) wins! Winning tiles: \(winningIndexes)")
         case .draw:
             tile.player = currentPlayer
             delegate?.gameEndedInDraw()
