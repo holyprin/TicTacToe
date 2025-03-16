@@ -1,4 +1,4 @@
-##TicTacToe Interview Project
+## TicTacToe Interview Project
 
 So the instructions for the project weren't entirely clear so I ended up filling in some blanks.
 
